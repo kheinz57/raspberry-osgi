@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="de.pragma42.osgi.sim.gpio">
+   <implementation class="de.pragma42.osgi.sim.gpio.GpioServiceImpl"/>
+   <reference 
+   		bind="setEventAdmin"
+   		interface="org.osgi.service.event.EventAdmin" 
+   		name="eventAdmin" 
+   		unbind="unsetEventadmin"
+   	/>
+</component>
