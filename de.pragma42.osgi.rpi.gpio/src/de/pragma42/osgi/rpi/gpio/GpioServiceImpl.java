@@ -1,4 +1,4 @@
-package de.pragma42.osgi.sim.gpio;
+package de.pragma42.osgi.rpi.gpio;
 
 import java.util.Dictionary;
 //import java.util.HashMap;
@@ -14,7 +14,7 @@ import org.osgi.service.log.LogService;
 
 public class GpioServiceImpl implements Runnable /*implements GpioService*/{
 	private Random random = new Random();
-    private Thread thread;
+  private Thread thread;
 	private class NullLogService implements LogService{
 		@Override public void log(int level, String message) {
 			System.out.println(message);
@@ -70,7 +70,7 @@ public class GpioServiceImpl implements Runnable /*implements GpioService*/{
 			eventProperties.put("counter",edgeCounter);
 			Event event = new Event("de/pragma42/osgi/gpio",eventProperties);
 			eventAdmin.sendEvent(event);
-			logService.log(LogService.LOG_DEBUG, "Timer fired from sim");
+			logService.log(LogService.LOG_DEBUG, "Timer fired from rpi");
 			long delay = random.nextInt(5001);
 			System.out.println(String.format("delay=%d",delay));
 			try{

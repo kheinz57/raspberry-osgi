@@ -1,7 +1,8 @@
-package de.pragma42.osgi.ferraris;
+package de.pragma42.osgi.rpi.gpio;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+
 public class Activator implements BundleActivator {
 
 	private static BundleContext context;
@@ -16,7 +17,6 @@ public class Activator implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
-		System.out.println("start bundle "+ context.getBundle().getSymbolicName());
 	}
 
 	/*
@@ -26,4 +26,5 @@ public class Activator implements BundleActivator {
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
 	}
+
 }
