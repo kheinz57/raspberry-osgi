@@ -3,7 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ferraris
 Bundle-SymbolicName: de.pragma42.osgi.ferraris
 Bundle-Version: 1.0.0.qualifier
+Service-Component: OSGI-INF/component-description.xml, OSGI-INF/component-receive-gpio.xml
 Import-Package: org.osgi.framework;version="1.3.0",
+ org.osgi.service.component;version="1.2.0",
  org.osgi.service.event;version="1.3.0",
+ org.osgi.service.log;version="1.3.0",
  org.osgi.util.tracker;version="1.5.0"
-Service-Component: component-receive-gpio.xml

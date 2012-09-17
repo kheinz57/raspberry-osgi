@@ -43,11 +43,12 @@ public class LoggerComponent implements LogListener {
 	public void logged(LogEntry entry) {
 
 		// Log-Informationen und -Nachricht in String einfuegen
-		String log = String.format("[%s] <%s> %s", getLevelAsString(entry
+		String log = String.format("{%s} <%s> %s", getLevelAsString(entry
 		    .getLevel()), entry.getBundle().getSymbolicName(), entry.getMessage());
 
 		// Ausgeben
 		System.out.println(log);
+		WebSocketChatWebSocketServlet.sendLog(log);
 
 		// Stacktrace ausgeben, wenn Exception vorhanden
 		Throwable exception = entry.getException();

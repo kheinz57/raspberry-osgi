@@ -8,6 +8,7 @@ import java.net.URL;
 
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
+import org.osgi.service.log.LogService;
 
 public class GpioReceiveComponent implements EventHandler{
 
@@ -20,11 +21,11 @@ public class GpioReceiveComponent implements EventHandler{
             String line;
 
             while ((line = reader.readLine()) != null) {
-                ret.append(line).append("\n");
-            	System.out.println(line);
+//                ret.append(line).append("\n");
+//            	System.out.println(line);
                 
             }
-            System.out.println(ret);
+//            System.out.println(ret);
             reader.close();
 
         } catch (MalformedURLException e) {
@@ -43,6 +44,7 @@ public class GpioReceiveComponent implements EventHandler{
 	@Override
 	public void handleEvent(Event event) {
 		long timestamp = (Long) event.getProperty("time");
+		LogWriterComponent.log(LogService.LOG_INFO, String.format("timestamp=%010d",timestamp));
 		System.out.println(String.format("timestamp=%010d",timestamp));
 		forward2Erlang(timestamp);
 	}

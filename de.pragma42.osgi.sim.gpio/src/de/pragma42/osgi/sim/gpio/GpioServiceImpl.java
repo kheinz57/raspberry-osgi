@@ -72,7 +72,7 @@ public class GpioServiceImpl implements Runnable /*implements GpioService*/{
 			eventAdmin.sendEvent(event);
 			logService.log(LogService.LOG_DEBUG, "Timer fired from sim");
 			long delay = random.nextInt(5001);
-			System.out.println(String.format("delay=%d",delay));
+//			System.out.println(String.format("delay=%d",delay));
 			try{
 				Thread.sleep(delay);
 			}catch(Exception e){};

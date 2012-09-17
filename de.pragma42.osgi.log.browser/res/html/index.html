@@ -6,18 +6,22 @@
 <meta charset="UTF-8" />
 <title>Jetty WebSocket: Chat</title>
 <script type="text/javascript" charset="utf-8" src="js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="js/logger.js"></script>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <script type="text/javascript">
 	var ws;
 
 	$(document).ready(
 			function() {
+			Logger.show();				// show logger initially
+			log("Window is loaded.");	// the first message
 				ws = new WebSocket("ws://localhost:8080/WebSocketChat");
 				ws.onopen = function(event) {
 					
 				}
 				ws.onmessage = function(event) {
 					var $textarea = $('#messages');
+					log(event.data);
 					$textarea.val($textarea.val() + event.data + "\n");
 					$textarea.animate({
 						scrollTop : $textarea.height()
@@ -46,7 +50,7 @@
 		</div>
 
 		<div id="chatbox">
-			<textarea id="messages" rows="16" cols="420" readonly="readonly"></textarea>
+			<textarea id="messages" rows="16" cols="60" readonly="readonly"></textarea>
 		</div>
 
 		<form name="message" action="">

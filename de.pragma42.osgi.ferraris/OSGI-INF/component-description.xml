@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<component name="logwriterComponent">
+	<implementation class="de.pragma42.osgi.ferraris.LogWriterComponent"/>
+	<reference name="logService" 
+		interface="org.osgi.service.log.LogService"
+		bind="setLogService"
+		unbind="unsetLogService"
+		/>
+</component>
